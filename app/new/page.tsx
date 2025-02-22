@@ -17,7 +17,7 @@ export default async function New({
 
   const neon = createApiClient({ apiKey: neonApiKey });
   let neonProject = p["neon-project"];
-  if (!neonProject || neonProject instanceof Array) throw notFound();
+  if (neonProject instanceof Array) throw notFound();
   try {
     if (neonProject) await neon.getProject(neonProject);
     else
